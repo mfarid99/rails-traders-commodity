@@ -1,0 +1,216 @@
+  [1m[35m (206.0ms)[0m  [1m[35mCREATE DATABASE "trading_app_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (87.2ms)[0m  [1m[35mCREATE DATABASE "trading_app_api_test" ENCODING = 'unicode'[0m
+  [1m[35m (17.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (67.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2620032425331935145)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTraders (20201203002855)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (14.4ms)[0m  [1m[35mCREATE TABLE "traders" ("id" bigserial primary key, "name" character varying, "money" decimal(8,2), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201203002855"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCommodities (20201203003004)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "commodities" ("id" bigserial primary key, "name" character varying, "price" decimal(8,2), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201203003004"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-12-03 00:45:26.368106"], ["updated_at", "2020-12-03 00:45:26.368106"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2620032425331935145)[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Create (1.2ms)[0m  [1m[32mINSERT INTO "traders" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Slimer"], ["money", "1000.0"], ["created_at", "2020-12-03 00:48:06.382837"], ["updated_at", "2020-12-03 00:48:06.382837"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Create (0.4ms)[0m  [1m[32mINSERT INTO "traders" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Skeletor"], ["money", "1000.0"], ["created_at", "2020-12-03 00:48:06.387985"], ["updated_at", "2020-12-03 00:48:06.387985"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Create (0.3ms)[0m  [1m[32mINSERT INTO "traders" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Dame Edna"], ["money", "1000.0"], ["created_at", "2020-12-03 00:48:06.391560"], ["updated_at", "2020-12-03 00:48:06.391560"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Create (0.3ms)[0m  [1m[32mINSERT INTO "traders" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Cousin It"], ["money", "1000.0"], ["created_at", "2020-12-03 00:48:06.395189"], ["updated_at", "2020-12-03 00:48:06.395189"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Create (0.3ms)[0m  [1m[32mINSERT INTO "traders" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Boomhauer"], ["money", "1000.0"], ["created_at", "2020-12-03 00:48:06.398634"], ["updated_at", "2020-12-03 00:48:06.398634"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Create (0.3ms)[0m  [1m[32mINSERT INTO "traders" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Molly Ringwald"], ["money", "1000.0"], ["created_at", "2020-12-03 00:48:06.401713"], ["updated_at", "2020-12-03 00:48:06.401713"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Create (0.3ms)[0m  [1m[32mINSERT INTO "traders" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Vander Von Odd"], ["money", "1000.0"], ["created_at", "2020-12-03 00:48:06.404923"], ["updated_at", "2020-12-03 00:48:06.404923"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Create (0.3ms)[0m  [1m[32mINSERT INTO "traders" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "James A. Garfield"], ["money", "1000.0"], ["created_at", "2020-12-03 00:48:06.408262"], ["updated_at", "2020-12-03 00:48:06.408262"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Create (2.6ms)[0m  [1m[32mINSERT INTO "traders" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Krang"], ["money", "1234567.9"], ["created_at", "2020-12-03 00:48:06.411335"], ["updated_at", "2020-12-03 00:48:06.411335"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (62.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "trading_app_api_development"[0m
+  [1m[35m (27.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "trading_app_api_test"[0m
+  [1m[35m (134.5ms)[0m  [1m[35mCREATE DATABASE "trading_app_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (99.1ms)[0m  [1m[35mCREATE DATABASE "trading_app_api_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "commodities" CASCADE[0m
+  [1m[35m (14.9ms)[0m  [1m[35mCREATE TABLE "commodities" ("id" bigserial primary key, "name" character varying, "price" decimal(8,2), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "traders" CASCADE[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "traders" ("id" bigserial primary key, "name" character varying, "money" decimal(8,2), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201203003004)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20201203002855);
+
+[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-12-03 00:50:46.573708"], ["updated_at", "2020-12-03 00:50:46.573708"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "a2053acf1a477513292bcdf7fe7efff7b45bcdac"], ["created_at", "2020-12-03 00:50:46.582221"], ["updated_at", "2020-12-03 00:50:46.582221"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "commodities" CASCADE[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "commodities" ("id" bigserial primary key, "name" character varying, "price" decimal(8,2), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "traders" CASCADE[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "traders" ("id" bigserial primary key, "name" character varying, "money" decimal(8,2), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201203003004)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20201203002855);
+
+[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-12-03 00:50:46.642259"], ["updated_at", "2020-12-03 00:50:46.642259"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-12-03 00:50:46.648309"], ["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "a2053acf1a477513292bcdf7fe7efff7b45bcdac"], ["created_at", "2020-12-03 00:50:46.653127"], ["updated_at", "2020-12-03 00:50:46.653127"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Create (0.8ms)[0m  [1m[32mINSERT INTO "traders" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Slimer"], ["money", "1000.0"], ["created_at", "2020-12-03 00:50:46.710208"], ["updated_at", "2020-12-03 00:50:46.710208"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Create (0.3ms)[0m  [1m[32mINSERT INTO "traders" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Skeletor"], ["money", "1000.0"], ["created_at", "2020-12-03 00:50:46.714710"], ["updated_at", "2020-12-03 00:50:46.714710"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Create (0.2ms)[0m  [1m[32mINSERT INTO "traders" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Dame Edna"], ["money", "1000.0"], ["created_at", "2020-12-03 00:50:46.717951"], ["updated_at", "2020-12-03 00:50:46.717951"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Create (0.2ms)[0m  [1m[32mINSERT INTO "traders" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Cousin It"], ["money", "1000.0"], ["created_at", "2020-12-03 00:50:46.720977"], ["updated_at", "2020-12-03 00:50:46.720977"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Create (0.4ms)[0m  [1m[32mINSERT INTO "traders" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Boomhauer"], ["money", "1000.0"], ["created_at", "2020-12-03 00:50:46.724036"], ["updated_at", "2020-12-03 00:50:46.724036"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Create (0.3ms)[0m  [1m[32mINSERT INTO "traders" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Molly Ringwald"], ["money", "1000.0"], ["created_at", "2020-12-03 00:50:46.727920"], ["updated_at", "2020-12-03 00:50:46.727920"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Create (0.2ms)[0m  [1m[32mINSERT INTO "traders" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Vander Von Odd"], ["money", "1000.0"], ["created_at", "2020-12-03 00:50:46.731304"], ["updated_at", "2020-12-03 00:50:46.731304"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Create (0.2ms)[0m  [1m[32mINSERT INTO "traders" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "James A. Garfield"], ["money", "1000.0"], ["created_at", "2020-12-03 00:50:46.734361"], ["updated_at", "2020-12-03 00:50:46.734361"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Create (0.3ms)[0m  [1m[32mINSERT INTO "traders" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Krang"], ["money", "234567.89"], ["created_at", "2020-12-03 00:50:46.737926"], ["updated_at", "2020-12-03 00:50:46.737926"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Create (0.3ms)[0m  [1m[32mINSERT INTO "traders" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Carl Sagan"], ["money", "1000.54"], ["created_at", "2020-12-03 00:50:46.741575"], ["updated_at", "2020-12-03 00:50:46.741575"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCommodity Create (0.6ms)[0m  [1m[32mINSERT INTO "commodities" ("name", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Oil"], ["price", "53.28"], ["created_at", "2020-12-03 00:50:46.754248"], ["updated_at", "2020-12-03 00:50:46.754248"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCommodity Create (0.3ms)[0m  [1m[32mINSERT INTO "commodities" ("name", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Gold"], ["price", "1216.7"], ["created_at", "2020-12-03 00:50:46.757967"], ["updated_at", "2020-12-03 00:50:46.757967"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCommodity Create (0.4ms)[0m  [1m[32mINSERT INTO "commodities" ("name", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Natural Gas"], ["price", "3.18"], ["created_at", "2020-12-03 00:50:46.761953"], ["updated_at", "2020-12-03 00:50:46.761953"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCommodity Create (0.3ms)[0m  [1m[32mINSERT INTO "commodities" ("name", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Copper"], ["price", "2.65"], ["created_at", "2020-12-03 00:50:46.765516"], ["updated_at", "2020-12-03 00:50:46.765516"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCommodity Create (0.2ms)[0m  [1m[32mINSERT INTO "commodities" ("name", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Gasoline"], ["price", "1.6"], ["created_at", "2020-12-03 00:50:46.768753"], ["updated_at", "2020-12-03 00:50:46.768753"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCommodity Create (0.2ms)[0m  [1m[32mINSERT INTO "commodities" ("name", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Silver"], ["price", "17.95"], ["created_at", "2020-12-03 00:50:46.771932"], ["updated_at", "2020-12-03 00:50:46.771932"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCommodity Create (0.3ms)[0m  [1m[32mINSERT INTO "commodities" ("name", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Wheat"], ["price", "428.2"], ["created_at", "2020-12-03 00:50:46.775341"], ["updated_at", "2020-12-03 00:50:46.775341"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCommodity Create (0.3ms)[0m  [1m[32mINSERT INTO "commodities" ("name", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Coffee"], ["price", "153.2"], ["created_at", "2020-12-03 00:50:46.779012"], ["updated_at", "2020-12-03 00:50:46.779012"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCommodity Create (0.2ms)[0m  [1m[32mINSERT INTO "commodities" ("name", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Lumber"], ["price", "325.5"], ["created_at", "2020-12-03 00:50:46.782334"], ["updated_at", "2020-12-03 00:50:46.782334"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCommodity Create (0.3ms)[0m  [1m[32mINSERT INTO "commodities" ("name", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Milk"], ["price", "16.77"], ["created_at", "2020-12-03 00:50:46.785634"], ["updated_at", "2020-12-03 00:50:46.785634"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/Traders" for ::1 at 2020-12-02 19:51:34 -0500
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/Traders"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/traders" for ::1 at 2020-12-02 19:51:42 -0500
+Processing by TradersController#index as HTML
+  [1m[36mTrader Load (0.8ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+Completed 200 OK in 21ms (Views: 11.4ms | ActiveRecord: 7.7ms | Allocations: 5508)
+
+
+Started GET "/traders" for ::1 at 2020-12-02 19:57:22 -0500
+Processing by TradersController#index as HTML
+  [1m[36mTrader Load (0.3ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.3ms | Allocations: 1962)
+
+
+Started GET "/commodities" for ::1 at 2020-12-02 20:02:53 -0500
+Processing by CommoditiesController#index as HTML
+  [1m[36mCommodity Load (0.9ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities"[0m
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+Completed 200 OK in 24ms (Views: 11.4ms | ActiveRecord: 11.2ms | Allocations: 4981)
+
+
